@@ -1,3 +1,4 @@
+set runtimepath+=~/Dropbox/.config/vim/colors
 "----key binding
 source ~/Dropbox/.config/vim/key_binding.vim
 
@@ -14,19 +15,33 @@ source ~/Dropbox/.config/vim/plugin_config.vim
 "colorscheme kalisi
 "colorscheme lucius
 "colorscheme solarized
-colorscheme wombat
+if has('unix')	
+	colorscheme wombat
+	set background=dark
+else 
+	set background=light
+	colorscheme delek
+endif
 "colorscheme simplifysimplify-light
 "colorscheme simplifysimplify-dark
 
 "---- general
+set wrap
 syntax on
 set number
 set relativenumber            
+set backspace=indent,eol,start
 filetype on
+filetype plugin on
 set hlsearch
 set guioptions=TrLm
 set guioptions-=m
 set guioptions-=T
+
+"----spell checl
+"
+set spelllang=en
+set spellfile=$HOME/Dropbox/vim/spell/en.utf-8.add
 
 "-----------------configure the string code--------------------
 set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
@@ -44,4 +59,5 @@ if has("gui_running")
   endif
 endif
 
-
+let g:ackprg = 'ag --nogroup --nocolor --column'
+let g:markdown_folding = 1

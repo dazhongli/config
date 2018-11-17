@@ -20,3 +20,5 @@ let g:pymode_breakpoint_bind = '<leader>b'
 let g:pymode_lint_on_write=1
 let g:pymode_doc_bind = 'K'
 
+let g:pymode_python = 'python3'
+nnoremap <buffer> <F9> :exec '!ipython' shellescape(@%, 1)<cr>

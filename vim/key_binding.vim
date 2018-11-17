@@ -7,14 +7,16 @@ noremap <Left> <Nop>
 noremap <Right> <Nop>
 
 "-----------------General configuration ----------------------
-:let mapleader = "," 
+let mapleader = "," 
+let maplocalleader = "\\"
+
 nmap <silent> ,/ :nohlsearch<CR>
 "----remap ; to : and press ; twice to get a actual ;
-nnoremap ; :
-noremap ;; ;
 imap jk <Esc>
 imap kj <Esc>
 nmap <silent> <F7> :call ToggleSpell()<CR>
+
+nmap <leader>gc :call Gosourcefile()<CR>
 
 "-------------------The following disable the back-up files
 set noundofile
@@ -22,22 +24,23 @@ set nobackup
 set noswapfile
 set wildmenu
 
-"----Quickly edit/reload the vimrc file
-nmap <silent> <leader>ev :e $MYVIMRC<CR>
-nmap <silent> <leader>sv :so $MYVIMRC<CR>
+"----Genernal map
+nnoremap W ::w<CR>
+nnoremap Q ::q!<CR>
 
 "----clear the serach results
-nmap <silent> ,/ :nohlsearch<CR>
+nmap <silent> <CR> :nohlsearch<CR>
 
 "----using <Tab> for the indent
 nnoremap <Tab> >>_
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
+nnoremap <Leader>as :Ack <C-r><C-w>
 
-"----map the moving with the leader key
- map <leader>h :wincmd h<CR>
- map <leader>j :wincmd j<CR>
- map <leader>k :wincmd k<CR>
- map <leader>l :wincmd l<CR>
+"----map the moving with the leader key  
+map <leader>h :wincmd h<CR>
+map <leader>j :wincmd j<CR>
+map <leader>k :wincmd k<CR>
+map <leader>l :wincmd l<CR>
 
 "----Quickly edit/reload the vimrc file
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
@@ -79,3 +82,10 @@ function! ToggleSpell()
 endfunction
 "----------------------config the key binding here------------------
 nmap <silent> <F7> :call ToggleSpell()<CR>
+
+"----markdown
+
+nnoremap <leader>cn :cn<cr>
+nnoremap <leader>cp :cp<cr>
+nnoremap <leader>cw :cw 10<cr> 
+
